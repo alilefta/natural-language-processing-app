@@ -1,9 +1,13 @@
+const dotenv = require('dotenv');
+
+
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
-const callAPI = require('./callAPI');
 const bodyParser = require('body-parser');
 const app = express();
+dotenv.config();
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -12,10 +16,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, './../client')))
 
 app.get('/', (req, res)=> {
-    res.sendFile('index.html')
+    let filename = path.resolve(__dirname, './../client/index.html');
+    res.sendFile(filename)
 })
-app.get('/Authenticate', (req, res)=> {
-    res.json(callAPI)
+app.get('/auth', (req, res)=> {
+    res.json({"key": process.env.API_KEY});
 })
 
 const port = 3355;
