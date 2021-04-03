@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPL Processing Project</title>
+</head>
+<body>
+    <header>
+        <div class="logo">NPL Processing</div>
+    </header>
+    <div class="container">
+        <form id="form" onsubmit="return Client.handleSubmit(event)">
+            <div class="form-control">
+                <label for="txt">
+                    Enter Your text
+                </label>
+                <input type="text" id="txt" name='text' placeholder="Enter your text">
+            </div>
+            <div class="form-control">
+                <label for="lang">
+                    Language ex: en for English
+                </label>
+                <select name="lang" id="lang">
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                    <option value="fr">FR</option>
+                    <option value="it">IT</option>
+                    <option value="ca">CA</option>
+                    <option value="pt">PT</option>
+                </select>
+            </div>
+            <!-- <input type="text" id="lang" name='lang' placeholder="language: en, ar, ..."> -->
+            <button type="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">Submit</button>
+        </form>
+        <div id="results">
+
+        </div>
+    </div>
+<script defer src="main.js"></script></body>
+</html>
