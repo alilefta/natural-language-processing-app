@@ -4,39 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./../styles/style.css"> -->
     <title>NPL Processing Project</title>
 </head>
 <body>
     <header>
-        <div class="logo">NPL Processing</div>
+        <div class="logo"><a href="#">NPL Processing</a></div>
+        <nav>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Github</a></li>
+            </ul>
+        </nav>
     </header>
     <div class="container">
         <form id="form" onsubmit="return Client.handleSubmit(event)">
-            <div class="form-control">
-                <label for="txt">
-                    Enter Your text
-                </label>
-                <input type="text" id="txt" name='text' placeholder="Enter your text">
+            <div class="upper-part">
+                <div class="form-controls">
+                    <label for="txt">
+                        Enter Your text
+                    </label>
+                    <input type="text" id="txt" name='text' placeholder="Enter your text">
+                </div>
+                <div class="form-controls">
+                    <label for="lang">
+                        Language:
+                    </label>
+                    <select name="lang" id="lang">
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                        <option value="fr">FR</option>
+                        <option value="it">IT</option>
+                        <option value="ca">CA</option>
+                        <option value="pt">PT</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-control">
-                <label for="lang">
-                    Language ex: en for English
-                </label>
-                <select name="lang" id="lang">
-                    <option value="en">EN</option>
-                    <option value="es">ES</option>
-                    <option value="fr">FR</option>
-                    <option value="it">IT</option>
-                    <option value="ca">CA</option>
-                    <option value="pt">PT</option>
-                </select>
-            </div>
+            
             <!-- <input type="text" id="lang" name='lang' placeholder="language: en, ar, ..."> -->
-            <button type="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">Submit</button>
+            <button type="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">Analyze</button>
         </form>
+        <h3>Text Analyzing Results</h3>
         <div id="results">
-
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Property</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Agreement</td>
+                        <td id="text-analyze-agreement">Null</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Confidence</td>
+                        <td id="text-analyze-confidence">0</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Model</td>
+                        <td id="text-analyze-model">null</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+    <!-- <div class="rotate_box"></div> -->
+    <div class="rotate_box2"></div>
+    <div class="rotate_box3"></div>
+
 <script defer src="main.js"></script></body>
 </html>

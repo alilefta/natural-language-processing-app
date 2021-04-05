@@ -6,7 +6,7 @@ const nplAPIUsage = async (auth, txt, lang) => {
         if(response.ok === true){
             const data = await response.json();
             console.log(data)
-            return data
+            return Client.updateUI(data);
         }else{
             console.log('there is error')
         }
@@ -14,5 +14,6 @@ const nplAPIUsage = async (auth, txt, lang) => {
         console.log('There is an Error:', error)
     }
 }
+
 
 export {nplAPIUsage}

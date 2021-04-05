@@ -1,11 +1,10 @@
-
-
 const handleSubmit = () => {
     const form = document.querySelector('#form');
     form.addEventListener('submit', e=> {
         e.preventDefault();
         let txt = document.querySelector('#txt');
         let lang = document.querySelector('#lang');
+        
         if(txt.value !== '' && lang.value !== ''){
             const requestKey = async()=> {
                 await fetch("http://localhost:3355/auth").then(res=> {

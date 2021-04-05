@@ -31,6 +31,9 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        contentBase: './dist',
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './App/client/views/index.html',
