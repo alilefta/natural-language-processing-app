@@ -1,3 +1,5 @@
+import {nplAPIUsage} from './meaningCloudAPI'
+const fetch = require("node-fetch");
 const handleSubmit = () => {
     const form = document.querySelector('#form');
     form.addEventListener('submit', e=> {
@@ -14,7 +16,7 @@ const handleSubmit = () => {
                         throw new Error('There is an error')
                     }
                 }).then(data => {
-                    return Client.nplAPIUsage(data.key, txt.value, lang.value)
+                    return nplAPIUsage(data.key, txt.value, lang.value)
                 }).catch(err=> console.log('There is error', err))
             } 
            requestKey();
