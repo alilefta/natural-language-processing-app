@@ -9,7 +9,9 @@ const nplAPIUsage = async (auth, txt, lang) => {
         }else{
             throw new Error("There is an error");
         }
-    }).then(data => updateUI(data)).catch(error=> {throw new Error("There is an error", error)})
+    }).then(data => updateUI(data)).catch(error=> {
+        return new Error("There is an error" + error)
+    });
 }
 
 

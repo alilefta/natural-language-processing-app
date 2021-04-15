@@ -1,6 +1,6 @@
-import {handleSubmit} from './../handleSubmit'
+import {handleSubmit, requestKey} from './../handleSubmit'
 
 
-test("Handle submit must except input", () => {
-    expect()
+test("Must return object", () => {
+    expect(handleSubmit()).toEqual(null);
 })

@@ -1,6 +1,4 @@
-import {nplAPIUsage} from './meaningCloudAPI';
-
-const updateUI = async (data) => {
+const updateUI = (data) => {
     const statusAgreement = document.querySelector('#text-analyze-agreement');
     const statusConfidence = document.querySelector('#text-analyze-confidence');
     const statusModel = document.querySelector('#text-analyze-model');
@@ -10,6 +8,8 @@ const updateUI = async (data) => {
         statusConfidence.innerText = data.confidence;
         statusModel.innerText = data.model;
     }
+
+    return null;
 
 }
 

@@ -71,7 +71,8 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "handleSubmit": () => (/* binding */ handleSubmit)
+/* harmony export */   "handleSubmit": () => (/* binding */ handleSubmit),
+/* harmony export */   "auxilaryFunc": () => (/* binding */ auxilaryFunc)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
@@ -83,49 +84,65 @@ __webpack_require__.r(__webpack_exports__);
 
 var fetch = __webpack_require__(/*! node-fetch */ "./node_modules/node-fetch/browser.js");
 
+var requestKey = /*#__PURE__*/function () {
+  var _ref = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return fetch("http://localhost:3355/auth").then(function (res) {
+              if (res.ok === true) {
+                return res.json();
+              } else {
+                throw new Error('There is an error');
+              }
+            }).then(function (data) {
+              return data;
+            })["catch"](function (err) {
+              return console.log('There is error', err);
+            });
+
+          case 2:
+            response = _context.sent;
+            return _context.abrupt("return", response);
+
+          case 4:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function requestKey() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var auxilaryFunc = function auxilaryFunc(txt, lang) {
+  return requestKey().then(function (data) {
+    return (0,_meaningCloudAPI__WEBPACK_IMPORTED_MODULE_2__.nplAPIUsage)(data.key, txt, lang);
+  });
+};
+
 var handleSubmit = function handleSubmit() {
   var form = document.querySelector('#form');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var txt = document.querySelector('#txt');
-    var lang = document.querySelector('#lang');
+  var txt = document.querySelector('#txt');
+  var lang = document.querySelector('#lang');
 
-    if (txt.value !== '' && lang.value !== '') {
-      var requestKey = /*#__PURE__*/function () {
-        var _ref = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _context.next = 2;
-                  return fetch("http://localhost:3355/auth").then(function (res) {
-                    if (res.ok === true) {
-                      return res.json();
-                    } else {
-                      throw new Error('There is an error');
-                    }
-                  }).then(function (data) {
-                    return (0,_meaningCloudAPI__WEBPACK_IMPORTED_MODULE_2__.nplAPIUsage)(data.key, txt.value, lang.value);
-                  })["catch"](function (err) {
-                    return console.log('There is error', err);
-                  });
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-                case 2:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        }));
+      if (txt.value !== '' && lang.value !== '') {
+        return auxilaryFunc(txt.value, lang.value);
+      }
+    });
+  }
 
-        return function requestKey() {
-          return _ref.apply(this, arguments);
-        };
-      }();
-
-      requestKey();
-    }
-  });
+  return null;
 };
 
 
@@ -170,7 +187,7 @@ var nplAPIUsage = /*#__PURE__*/function () {
             }).then(function (data) {
               return (0,_updateUI__WEBPACK_IMPORTED_MODULE_2__.updateUI)(data);
             })["catch"](function (error) {
-              throw new Error("There is an error", error);
+              return new Error("There is an error" + error);
             });
 
           case 2:
@@ -204,43 +221,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "updateUI": () => (/* binding */ updateUI)
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _meaningCloudAPI__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./meaningCloudAPI */ "./App/client/src/meaningCloudAPI.js");
+var updateUI = function updateUI(data) {
+  var statusAgreement = document.querySelector('#text-analyze-agreement');
+  var statusConfidence = document.querySelector('#text-analyze-confidence');
+  var statusModel = document.querySelector('#text-analyze-model');
 
+  if (data.hasOwnProperty('status')) {
+    statusAgreement.innerText = data.agreement;
+    statusConfidence.innerText = data.confidence;
+    statusModel.innerText = data.model;
+  }
 
-
-
-var updateUI = /*#__PURE__*/function () {
-  var _ref = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(data) {
-    var statusAgreement, statusConfidence, statusModel;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            statusAgreement = document.querySelector('#text-analyze-agreement');
-            statusConfidence = document.querySelector('#text-analyze-confidence');
-            statusModel = document.querySelector('#text-analyze-model');
-
-            if (data.hasOwnProperty('status')) {
-              statusAgreement.innerText = data.agreement;
-              statusConfidence.innerText = data.confidence;
-              statusModel.innerText = data.model;
-            }
-
-          case 4:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function updateUI(_x) {
-    return _ref.apply(this, arguments);
-  };
-}();
+  return null;
+};
 
 
 
