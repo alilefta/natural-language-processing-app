@@ -1,5 +1,7 @@
 import {updateUI} from './updateUI'
 const fetch = require("node-fetch");
+
+// Request data from API
 const nplAPIUsage = async (auth, txt, lang) => {
     // https://api.meaningcloud.com/sentiment-2.1&key=${auth}&txt=${txt}&lang=${lang}
 
