@@ -2,6 +2,10 @@
 
 NPL text processing is an App used to analyze text with help of sentimental API of Meaning Cloud.
 
+App is build using SASS, express, Webpack.
+Unit tested with Jest.
+Service workers included.
+
 ## Installation
 
 Use NPM package manager to install all dependencies.
