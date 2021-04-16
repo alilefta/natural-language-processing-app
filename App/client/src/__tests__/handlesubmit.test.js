@@ -1,6 +1,8 @@
-import {handleSubmit, requestKey} from './../handleSubmit'
+import {handleSubmit} from './../handleSubmit';
+const mockFunctions = require('jest-fetch-mock');
 
-
-test("Must return object", () => {
-    expect(handleSubmit()).toEqual(null);
+describe("Handling submit", () => {
+    it("On form submitting", ()=> {
+        expect(handleSubmit()).toEqual(null);
+    })
 })

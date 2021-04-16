@@ -1,6 +1,4 @@
-import {updateUI} from './updateUI'
 const fetch = require("node-fetch");
-
 // Request data from API
 const nplAPIUsage = async (auth, txt, lang) => {
     // https://api.meaningcloud.com/sentiment-2.1&key=${auth}&txt=${txt}&lang=${lang}
@@ -11,9 +9,10 @@ const nplAPIUsage = async (auth, txt, lang) => {
         }else{
             throw new Error("There is an error");
         }
-    }).then(data => updateUI(data)).catch(error=> {
+    }).catch(error=> {
         return new Error("There is an error" + error)
     });
+    return response;
 }
 
 

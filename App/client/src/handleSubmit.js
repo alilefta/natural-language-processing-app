@@ -1,4 +1,5 @@
 import {nplAPIUsage} from './meaningCloudAPI'
+import { updateUI } from './updateUI';
 const fetch = require("node-fetch");
 
 // Request an API key from the APP server
@@ -17,7 +18,7 @@ const requestKey = async()=> {
 
 // Chaining KEY Request function with API data gathering function
 const auxilaryFunc = (txt, lang) => {
-    return requestKey().then(data => nplAPIUsage(data.key, txt, lang));
+    return requestKey().then(data => nplAPIUsage(data.key, txt, lang)).then(data => updateUI(data));
 }
 
 // Handling Submit Event
@@ -39,4 +40,4 @@ const handleSubmit = () => {
 
 
 
-export {handleSubmit, auxilaryFunc}
+export {handleSubmit, auxilaryFunc, requestKey}
