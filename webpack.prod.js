@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackTerser = require('terser-webpack-plugin');
 const OptimizeCssPlugin = require('css-minimizer-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 
 module.exports = {
@@ -16,7 +15,8 @@ module.exports = {
     },
     output: {
         libraryTarget: 'var',
-        library: 'Client'
+        library: 'Client',
+        assetModuleFilename: 'favicons/[name][ext][query]'
     },
     module: {
         rules: [
@@ -32,6 +32,10 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+                type: 'asset/resource',
             }
         ]
     },
@@ -39,25 +43,9 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./App/client/views/index.html",
             filename: "./index.html",
-            // favicon: './App/client/assets/favicon/'
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css'
-        }),
-        new FaviconsWebpackPlugin({
-            logo: './App/client/assets/favicon/favicon-16x16.png',
-            cache: false,
-            manifest: './App/client/assets/favicon/site.webmanifest',
-            icons: {
-                android: true,    
-                appleIcon: true,           
-                appleStartup: false,         
-                coast: true,                
-                favicons: true,             
-                firefox: true,              
-                windows: true,              
-                yandex: true     
-            }
         }),
         new WorkboxPlugin.GenerateSW()
     ]

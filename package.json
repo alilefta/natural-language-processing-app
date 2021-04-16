@@ -20,6 +20,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "favicons": "^6.2.1",
     "form-data": "^4.0.0",
     "meaning-cloud": "^1.1.10",
     "node-fetch": "^2.6.1",
