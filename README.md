@@ -6,6 +6,9 @@ App is build using SASS, express, Webpack.
 Unit tested with Jest.
 Service workers included.
 
+## Demo
+https://angry-almeida-1e29f6.netlify.app/
+
 ## Installation
 
 Use NPM package manager to install all dependencies.
