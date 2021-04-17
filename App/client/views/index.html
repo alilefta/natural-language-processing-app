@@ -81,6 +81,12 @@
     <!-- <div class="rotate_box"></div> -->
     <div class="rotate_box2"></div>
     <div class="rotate_box3"></div>
-
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
 </body>
 </html>
