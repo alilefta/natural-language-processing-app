@@ -22,13 +22,13 @@ npm install
 To build a development version
 
 ```
-npm run start
+npm run build-dev
 ```
 
 To build a production version
 
 ```
-npm run build
+npm run build-prod
 ```
 
 To run the App server
