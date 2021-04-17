@@ -3,6 +3,6 @@ const mockFunctions = require('jest-fetch-mock');
 
 describe("Handling submit", () => {
     it("On form submitting", ()=> {
-        expect(handleSubmit()).toEqual(null);
+        expect(handleSubmit()).toEqual(undefined);
     })
 })

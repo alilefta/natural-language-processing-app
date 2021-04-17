@@ -34,7 +34,6 @@ const handleSubmit = () => {
             }
         })
     }
-
 }
 
 document.addEventListener("DOMContentLoaded", ()=> {
