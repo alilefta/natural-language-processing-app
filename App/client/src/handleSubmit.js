@@ -34,9 +34,12 @@ const handleSubmit = () => {
             }
         })
     }
-    return null;
 
 }
+
+document.addEventListener("DOMContentLoaded", ()=> {
+    handleSubmit();
+})
 
 
 

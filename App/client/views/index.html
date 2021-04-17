@@ -22,7 +22,7 @@
         </nav>
     </header>
     <div class="container">
-        <form id="form" onsubmit="return Client.handleSubmit(event)">
+        <form id="form">
             <div class="upper-part">
                 <div class="form-controls">
                     <label for="txt">
@@ -46,7 +46,7 @@
             </div>
             
             <!-- <input type="text" id="lang" name='lang' placeholder="language: en, ar, ..."> -->
-            <button type="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">Analyze</button>
+            <button type="submit">Analyze</button>
         </form>
         <h3>Text Analyzing Results</h3>
         <div id="results">

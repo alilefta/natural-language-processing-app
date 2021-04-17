@@ -6,16 +6,16 @@ const bodyParser = require('body-parser');
 const app = express();
 dotenv.config();
 
-const MeaningCloud = require('meaning-cloud');
+// const MeaningCloud = require('meaning-cloud');
 
-const meaning = MeaningCloud({
-    key: process.env.API_KEY,
-    secure: true,
-    uri: 'custom-uri',
-    endpoints: {
-        topics_extraction: '/sentiment-2.1'
-    }
-})
+// const meaning = MeaningCloud({
+//     key: process.env.API_KEY,
+//     secure: true,
+//     uri: 'custom-uri',
+//     endpoints: {
+//         topics_extraction: '/sentiment-2.1'
+//     }
+// })
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -31,10 +31,6 @@ app.get('/auth', (req, res)=> {
 })
 
 app.post('/log', (req, res)=> {
-
-    // for (var [key, value] of entries()) { 
-    //     console.log(key, value);
-    // }
     console.log(req.body)
     res.send('test')
 })

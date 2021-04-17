@@ -2,20 +2,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
 
 module.exports = {
-    mode: 'development',
     entry: './App/client/index.js',
-    devtool: 'source-map',
+    mode: 'development',
+    devtool: 'inline-source-map',
     output: {
         libraryTarget: 'var',
-        library: 'Client'
+        library: 'Client',
+        assetModuleFilename: 'favicons/[name][ext][query]'
     },
     module: {
         rules: [
             {
-                test: /\.m?js$/,
+                test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
@@ -28,11 +28,17 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+                type: 'asset/resource',
             }
         ]
     },
     devServer: {
         contentBase: './dist',
+        writeToDisk: false,
+        port: 8081
     },
     plugins: [
         new HtmlWebpackPlugin({

@@ -7,9 +7,9 @@
     "test": "jest",
     "test:cover": "jest --coverage",
     "test:watch": "jest --watch",
-    "start": "node App/server/server.js",
+    "start": "node App/server/server.js --open",
     "watch": "webpack --config webpack.dev.js --watch",
-    "build:dev": "webpack serve --config webpack.dev.js --open",
+    "build:dev": "webpack serve --config ./webpack.dev.js --open",
     "build:prod": "webpack --config ./webpack.prod.js"
   },
   "author": "",
